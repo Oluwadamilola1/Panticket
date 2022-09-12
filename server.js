@@ -60,6 +60,10 @@ server.use(
   })
 );
 
+if (process.env.NODE_ENV !== "development") {
+  port = process.env.PORT;
+}
+
 const port = 4001;
 
 server.get("/", homeController);
