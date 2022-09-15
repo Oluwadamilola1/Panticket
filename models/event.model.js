@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
-import { v4 as uuidv4 } from 'uuid';
+import mongoose, { Schema } from "mongoose";
+import { v4 as uuidv4 } from "uuid";
 
 const eventSchema = new Schema({
   _id: {
@@ -9,6 +9,10 @@ const eventSchema = new Schema({
   name: {
     type: String,
     required: true,
+  },
+  image: {
+    default: null,
+    type: String,
   },
   time: {
     type: String,
@@ -29,25 +33,25 @@ const eventSchema = new Schema({
   tickets: [
     {
       type: String,
-      ref: 'Ticket',
+      ref: "Ticket",
     },
   ],
   ticketTypes: [
     {
       type: String,
-      ref: 'TicketType',
+      ref: "TicketType",
     },
   ],
   organizer: {
     type: String,
-    ref: 'Organizer',
+    ref: "Organizer",
   },
   category: {
     type: String,
-    ref: 'Category',
+    ref: "Category",
   },
 });
 
-const Event = mongoose.model('Event', eventSchema);
+const Event = mongoose.model("Event", eventSchema);
 
 export default Event;
